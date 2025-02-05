@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <title>Gerenciador de Senhas</title>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Gerenciador de Senhas</h2>
+            <div class="vault">
+                <ul>
+                    <li class="active">Logins <span id="loginCount">1</span></li>
+                    <li id="passwordGeneratorTab">Gerador de Senhas</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="main-content">
+            <section id="loginsSection">
+                <header class="dashboard-header">
+                    <h1>Logins</h1>
+                    <button id="addLoginButton">Adicionar Login</button>
+                </header>
+
+                <div id="addLoginForm" class="hidden">
+                    <input type="text" id="siteInput" placeholder="Sistema" />
+                    <input type="text" id="userInput" placeholder="Usuário" />
+                    <div class="password-field">
+                        <input type="password" id="passwordInput" placeholder="Senha" />
+                        <button id="generatePasswordForLogin">Gerar Senha</button>
+                    </div>
+                    <button id="saveLoginButton">Salvar</button>
+                </div>
+
+                <h2>Criptografia</h2>
+                <div>
+                    <input type="text" id="senhaCriptograficaInput" placeholder="Senha Criptográfica">
+                    <button id="encryptButton">Criptografar</button>
+                    <button id="decryptButton">Descriptografar</button>
+                </div>
+
+                <table class="logins-table">
+                    <thead>
+                        <tr>
+                            <th>Sistemas</th>
+                            <th>Usuário</th>
+                            <th>Senha</th>
+                        </tr>
+                    </thead>
+                    <tbody id="loginsTableBody">
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="passwordGeneratorSection" class="hidden">
+                <h1>Gerador de Senha</h1>
+                <!-- <div id="password-container">
+                    <span id="password"></span>
+                    <button id="copy">
+                        <i class="fa-solid fa-copy"></i>
+                    </button>
+                </div> -->
+
+                <div id="password-items">
+                    <div class="item">
+                        <label for="size">Quantidade de caracteres</label>
+                        <input id="size" name="size" type="number" min="4" max="128">
+                    </div>
+
+                    <div class="item">
+                        <input type="checkbox" name="include_uppercase" id="include_uppercase">
+                        <label for="include_uppercase">Incluir letra maiúscula</label>
+                    </div>
+
+                    <div class="item">
+                        <input type="checkbox" name="include_lowercase" id="include_lowercase">
+                        <label for="include_lowercase">Incluir letra minúscula</label>
+                    </div>
+
+                    <div class="item">
+                        <input type="checkbox" name="include_number" id="include_number">
+                        <label for="include_number">Incluir número</label>
+                    </div>
+
+                    <div class="item">
+                        <input type="checkbox" name="include_special_character" id="include_special_character">
+                        <label for="include_special_character">Incluir caractere especial</label>
+                    </div>
+
+                    <button id="generate">Gerar Senha</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
